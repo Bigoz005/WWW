@@ -1,0 +1,151 @@
+body {
+    background-color: darkslategray;
+    height: 1000px;
+}
+
+.container-fluid {
+    overflow: hidden;
+}
+
+span {
+    display: block;
+    width: 100%;
+    background-color: lawngreen;
+    color: darkslategray;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 48px;
+    font-family: Comic Sans MS;
+    letter-spacing: 8px;
+    text-align: center;
+}
+
+#class1 {
+    margin-top: 250px;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: cornflowerblue;
+}
+
+.table {
+    margin-top: 100px;
+    width: 500px;
+    height: 500px;
+    border: 10px solid white;
+}
+
+td {
+    border: 5px solid white;
+}
+
+td.empty {
+    background-color: white;
+}
+
+td.unmarked {
+    background-color: lawngreen;
+}
+
+td.marked {
+    background-color: cornflowerblue;
+}
+
+#number-of-clicks {
+    visibility: hidden;
+    display: block;
+    width: 100%;
+    background-color: lawngreen;
+    color: darkslategray;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 48px;
+    font-family: Comic Sans MS;
+    letter-spacing: 8px;
+    text-align: center;
+}
+
+#wynik{
+    display: block;
+    margin: auto;
+    padding: 10px 60px;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    background-color: lawngreen;
+    color: darkslategray;
+}
+
+p {
+    display: inline-block;
+    font-size: 36px;
+    font-family: Comic Sans MS;
+    color: lemonchiffon;
+    margin-right: 10px;
+}
+
+button{
+    display: block;
+    margin: auto;
+    padding: 10px 60px;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    background-color: lawngreen;
+    color: darkslategray;
+}
+
+#class1 {
+    visibility: visible;
+}
+
+#win-title {
+    visibility: hidden;
+}
+
+.container{
+    text-align: center;
+}
+
+#level-one{
+    display: inline-block;
+    margin: auto;
+    padding: 10px 60px;
+    visibility: hidden;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#level-two{
+    display: inline-block;
+    margin: auto;
+    padding: 10px 60px;
+    visibility: hidden;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#level-three{
+    display: inline-block;
+    margin: auto;
+    padding: 10px 60px;
+    visibility: hidden;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#level-four{
+    display: inline-block;
+    margin: auto;
+    padding: 10px 60px;
+    visibility: hidden;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
