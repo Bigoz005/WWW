@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   title = 'Układanka';
   clickCounter = 0;
   allMarked = false;
+  startClicked = false;
   values = [[1,0,0,0,1],
     [1,0,0,0,1],
     [1,1,0,0,1],
@@ -20,19 +21,23 @@ export class AppComponent implements OnInit {
     [1,0,0,0,1]];
 
 
-    generateValues() {
-      for(let i = 0; i < 5; i++){
-        for(let j = 0; j < 5 ; j++){
-          const generatedNumber = Math.floor((Math.random() * 2));
-          this.values[i][j] = generatedNumber;
-        }
+  generateValues() {
+    for(let i = 0; i < 5; i++){
+      for(let j = 0; j < 5 ; j++){
+        const generatedNumber = Math.floor((Math.random() * 2));
+        this.values[i][j] = generatedNumber;
       }
     }
+  }
 
+  onStartClicked() {
+    this.startClicked = true;
+    this.ngOnInit();
+  }
 
-ngOnInit(): void {
-  this.generateValues();
-}
+  ngOnInit(): void {
+    this.generateValues();
+  }
 
   tileDetection(event, j: number, i: number) {
     console.log('i = ' + i );
