@@ -2,206 +2,34 @@
 
 <body>
   <div class="container">
-    <div class="text-center" id="default-title">
-      <span>Układanka</span>
+    <div class="text-center">
+      <div class="header" *ngIf="!allMarked; else win">Układanka</div>
+      <ng-template #win >
+        <div class="header">Wygrana!</div>
+      </ng-template>
     </div>
-    <div class="text-center" id="win-title">
-      <span>Wygrana!</span>
+
+    <div class="counter">
+      <div id="wynik">Liczba klikniec: <p class="clickCount"> {{clickCounter}} </p> </div>
     </div>
-    <div id="number-of-clicks">
-      <div id="wynik">Liczba klikniec: {{clickCounter}}</div>
-    </div>
+
+    <div  *ngFor="let item of values; let i = index;">
+        <div *ngFor="let disp of item; let j = index"
+              (click)="tileDetection($event, i, j)"
+              [ngClass]="disp == 0  ? 'empty' : 'unmarked'">
+                <div class="item">
+                  {{disp}}
+                </div>
+              </div>
+            <br>
+          </div>
+        </div>
+
+
     <div id="class1">
       <div class="text-center">
-        <button type="button" class="StartButton" (click)="startFunction()">Start</button>
+        <button type="button" class="StartButton">Start</button>
       </div>
     </div>
 
-    <div id="level-one">
-      <div class="container h-100">
-        <div class="row justify-content-center align-items-center">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div id="level-two">
-      <div class="container h-100">
-        <div class="row justify-content-center align-items-center">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div id="level-three">
-      <div class="container h-100">
-        <div class="row justify-content-center align-items-center">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div id="level-four">
-      <div class="container h-100">
-        <div class="row justify-content-center align-items-center">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-                <td class="empty"></td>
-                <td class="empty"></td>
-              </tr>
-              <tr>
-                <td class="empty"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="unmarked" (click)="clickFunction()"></td>
-                <td class="empty"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
-
-
-<router-outlet></router-outlet>

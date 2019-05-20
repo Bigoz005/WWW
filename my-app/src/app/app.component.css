@@ -7,21 +7,36 @@ body {
     overflow: hidden;
 }
 
-span {
-    display: block;
-    width: 100%;
-    background-color: lawngreen;
-    color: darkslategray;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 48px;
-    font-family: Comic Sans MS;
-    letter-spacing: 8px;
-    text-align: center;
+.header {
+   display: block;
+   width: 100%;
+   background-color: lawngreen;
+   color: darkslategray;
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 48px;
+   font-family: Comic Sans MS;
+   letter-spacing: 8px;
+   text-align: center;
+
+}
+
+.container{
+  text-align: center;
+}
+
+
+.clickCount {
+  font-size: 20px;
+  font-style: bold;
+}
+
+.item {
+  display: inline-block;
 }
 
 #class1 {
-    margin-top: 250px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -36,20 +51,28 @@ span {
     border: 10px solid white;
 }
 
-td {
-    border: 5px solid white;
+.item {
+    border: 1px solid gray;
+    height: 60px;;
+    width: 60px;
 }
 
-td.empty {
-    background-color: white;
+.empty {
+  display: inline-block;
+  background-color: white;
+  color: white;
 }
 
-td.unmarked {
+.unmarked {
+    display: inline-block;
     background-color: lawngreen;
+    color: lawngreen;
 }
 
-td.marked {
+.marked {
+    display: inline-block;
     background-color: cornflowerblue;
+    color: cornflowerblue;
 }
 
 #number-of-clicks {
@@ -72,8 +95,8 @@ td.marked {
     padding: 10px 60px;
     font-size: 20px;
     font-family: Comic Sans MS;
-    background-color: lawngreen;
-    color: darkslategray;
+    background-color: darkslategray;
+    color: lawngreen;
 }
 
 p {
@@ -102,11 +125,10 @@ button{
     visibility: hidden;
 }
 
-.container{
-    text-align: center;
-}
 
-#level-one{
+
+
+/* #level-one{
     display: inline-block;
     margin: auto;
     padding: 10px 60px;
@@ -148,4 +170,4 @@ button{
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
