@@ -35,7 +35,7 @@ body {
   display: inline-block;
 }
 
-#class1 {
+#buttons-div {
     margin-top: 50px;
     text-align: center;
 }
@@ -117,57 +117,22 @@ button{
     color: darkslategray;
 }
 
-#class1 {
+.startB{
+    visibility: visible;
+}
+
+.generateB{
+    visibility: hidden;
+    display: inline-block;
+    position: static;
+    margin: 5px;
+    padding: 10px 60px;
+}
+
+#buttons-div {
     visibility: visible;
 }
 
 #win-title {
     visibility: hidden;
 }
-
-
-
-
-/* #level-one{
-    display: inline-block;
-    margin: auto;
-    padding: 10px 60px;
-    visibility: hidden;
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#level-two{
-    display: inline-block;
-    margin: auto;
-    padding: 10px 60px;
-    visibility: hidden;
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#level-three{
-    display: inline-block;
-    margin: auto;
-    padding: 10px 60px;
-    visibility: hidden;
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#level-four{
-    display: inline-block;
-    margin: auto;
-    padding: 10px 60px;
-    visibility: hidden;
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */

@@ -4,37 +4,36 @@
   <div class="container">
     <div class="text-center">
       <div class="header" *ngIf="!allMarked; else win">Układanka</div>
-      <ng-template #win >
+      <ng-template #win>
         <div class="header">Wygrana!</div>
       </ng-template>
     </div>
 
     <div class="counter">
-      <div id="wynik">Liczba klikniec: <p class="clickCount"> {{clickCounter}} </p> </div>
+      <div id="wynik">Liczba klikniec: <p class="clickCount"> {{clickCounter}} </p>
+      </div>
     </div>
 
     <div id="jigsaw">
-    <div *ngIf="startClicked">
-      <div *ngFor="let item of values; let i = index;">
-          <div *ngFor="let disp of item; let j = index"
-                (click)="onTileClicked($event, i, j)"
-                [ngClass]="disp.value == 0  ? 'empty' : (disp.marked ? 'marked' : 'unmarked')">
-                  <div class="item">
-                    {{disp.value}}
-                 </div>
-                </div>
-              <br>
+      <div *ngIf="startClicked">
+        <div *ngFor="let item of values; let i = index;">
+          <div *ngFor="let disp of item; let j = index" (click)="onTileClicked($event, i, j)"
+            [ngClass]="disp.value == 0  ? 'empty' : (disp.marked ? 'marked' : 'unmarked')">
+            <div class="item">
+              {{disp.value}}
             </div>
           </div>
+          <br>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div id="class1">
-      <div class="text-center">
-        <button type="button" class="StartButton" (click)="onStartClicked()">Start</button>
-        <button type="button" class="StartButton" (click)="onGenerateNewClicked()">Generate new</button>
-
-      </div>
+  <div id="buttons-div">
+    <div class="text-center">
+      <button type="button" id="startButton" class="startB" (click)="onStartClicked()">Start</button>
     </div>
+    <button type="button" id="generateButton" class="generateB" (click)="onGenerateNewClicked()">Generate new</button>
+  </div>
 
 </body>

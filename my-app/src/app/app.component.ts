@@ -51,17 +51,20 @@ export class AppComponent {
     } else {
       this.numberOfOnes = 0;
       this.numberOfMarked = 0;
+      this.allMarked = false;
     }
   }
 
   onGenerateNewClicked() {
-    this.clickCounter = 0;
     this.generateValues();
+    this.clickCounter = 0;
+    this.allMarked = false;
   }
 
   onStartClicked() {
     this.startClicked = true;
-    this.generateValues();
+    document.getElementById("startButton").style.visibility = 'hidden';
+    document.getElementById("generateButton").style.visibility = 'visible';
   }
 
   checkTileNeighbour(i: number, j: number) {
@@ -89,12 +92,15 @@ export class AppComponent {
         this.values[i][j + 1].marked ? this.values[i][j + 1].marked = false : this.values[i][j + 1].marked = true;
       }
     } else if (j == 0) {
-      this.values[i][j + 1].marked ? this.values[i][j + 1].marked = false : this.values[i][j + 1].marked = true;
+      if (this.values[i][j + 1].value == 1) {
+        this.values[i][j + 1].marked ? this.values[i][j + 1].marked = false : this.values[i][j + 1].marked = true;
+      }
     } else if (j == 4) {
-      this.values[i][j - 1].value ? this.values[i][j - 1].marked = false : this.values[i][j - 1].marked = true;
+      if (this.values[i][j - 1].value == 1) {
+        this.values[i][j - 1].marked ? this.values[i][j - 1].marked = false : this.values[i][j - 1].marked = true;
+      }
     }
   }
-
 
   onTileClicked(event, i: number, j: number) {
     this.values[i][j].marked = !this.values[i][j].marked;
