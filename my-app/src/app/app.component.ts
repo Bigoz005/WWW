@@ -38,7 +38,6 @@ export class AppComponent{
   }
 
   checkTileNeighbour(i: number, j: number) {
-    console.log( i + '' + j);
     if (i < 4 && i > 0 ) {
       this.values[i + 1][j].value == 1 ? this.values[i + 1][j].marked = true : this.values[i + 1][j].marked = false;
       this.values[i - 1][j].value == 1 ? this.values[i - 1][j].marked = true : this.values[i - 1][j].marked = false;

@@ -19,8 +19,7 @@
           <div *ngFor="let disp of item; let j = index"
                 (click)="onTileClicked($event, i, j)"
                 [ngClass]="disp.value == 0  ? 'empty' : (disp.marked ? 'marked' : 'unmarked')">
-                  <div style="color: RED !important" class="item">
-                   {{disp.marked}}
+                  <div class="item">
                     {{disp.value}}
                  </div>
                 </div>
