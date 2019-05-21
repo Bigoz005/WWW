@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { $$ } from 'protractor';
-import { build$$ } from 'protractor/built/element';
-import { element } from '@angular/core/src/render3';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,44 +6,66 @@ import { element } from '@angular/core/src/render3';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent{
   title = 'Układanka';
   clickCounter = 0;
   allMarked = false;
   startClicked = false;
-  values = [[1,0,0,0,1],
-    [1,0,0,0,1],
-    [1,1,0,0,1],
-    [1,0,0,1,1],
-    [1,0,0,0,1]];
+  values = [[{value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}],
+    [{value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}],
+    [{value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}],
+    [{value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}],
+    [{value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}, {value: 0, marked: false}]];
 
 
   generateValues() {
-    for(let i = 0; i < 5; i++){
-      for(let j = 0; j < 5 ; j++){
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5 ; j++) {
         const generatedNumber = Math.floor((Math.random() * 2));
-        this.values[i][j] = generatedNumber;
+        this.values[i][j].value = generatedNumber;
+        this.values[i][j].marked = false;
       }
     }
   }
 
-  onStartClicked() {
-    this.startClicked = true;
-    this.ngOnInit();
-  }
-
-  ngOnInit(): void {
+  onGenerateNewClicked() {
     this.generateValues();
   }
 
-  tileDetection(event, j: number, i: number) {
-    console.log('i = ' + i );
-    console.log('j = ' + j );
-    if (event.toElement.innerHTML == 1) {
-      event.target.classList.add('marked');
-      this.clickCounter ++;
+  onStartClicked() {
+    this.startClicked = true;
+    this.generateValues();
+  }
+
+  checkTileNeighbour(i: number, j: number) {
+    console.log( i + '' + j);
+    if (i < 4 && i > 0 ) {
+      this.values[i + 1][j].value == 1 ? this.values[i + 1][j].marked = true : this.values[i + 1][j].marked = false;
+      this.values[i - 1][j].value == 1 ? this.values[i - 1][j].marked = true : this.values[i - 1][j].marked = false;
+    } else if (i == 0 ){
+      this.values[i + 1][j].value == 1 ? this.values[i + 1][j].marked = true : this.values[i + 1][j].marked = false;
+    } else if ( i == 4 ) {
+      this.values[i - 1][j].value == 1 ? this.values[i - 1][j].marked = true : this.values[i - 1][j].marked = false;
+    }
+    if (j < 4 && j > 0) {
+      this.values[i][j - 1].value == 1 ? this.values[i][j - 1].marked = true : this.values[i][j - 1].marked = false;
+      this.values[i][j + 1].value == 1 ? this.values[i][j + 1].marked = true : this.values[i][j + 1].marked = false;
+    } else if (j == 0) {
+      this.values[i][j + 1].value == 1 ? this.values[i][j + 1].marked = true : this.values[i][j + 1].marked = false;
+    } else if ( j == 4) {
+      this.values[i][j - 1].value == 1 ? this.values[i][j - 1].marked = true : this.values[i][j - 1].marked = false;
     }
   }
+
+  onTileClicked(event, i: number, j: number) {
+    if (this.values[i][j].value == 1) {
+      event.target.classList.add('marked');
+      this.clickCounter ++;
+      this.checkTileNeighbour(i, j);
+      }
+    }
+
+
 }
 
 

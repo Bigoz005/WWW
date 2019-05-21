@@ -13,26 +13,27 @@
       <div id="wynik">Liczba klikniec: <p class="clickCount"> {{clickCounter}} </p> </div>
     </div>
 
+    <div id="jigsaw">
     <div *ngIf="startClicked">
-
-    <div  *ngFor="let item of values; let i = index;">
-        <div *ngFor="let disp of item; let j = index"
-              (click)="tileDetection($event, i, j)"
-              [ngClass]="disp == 0  ? 'empty' : 'unmarked'">
-                <div class="item">
-                  {{disp}}
+      <div *ngFor="let item of values; let i = index;">
+          <div *ngFor="let disp of item; let j = index"
+                (click)="onTileClicked($event, i, j)"
+                [ngClass]="disp.value == 0  ? 'empty' : (disp.marked ? 'marked' : 'unmarked')">
+                  <div style="color: RED !important" class="item">
+                   {{disp.marked}}
+                    {{disp.value}}
+                 </div>
                 </div>
-              </div>
-            <br>
+              <br>
+            </div>
           </div>
-        </div>
-
       </div>
+    </div>
 
     <div id="class1">
       <div class="text-center">
         <button type="button" class="StartButton" (click)="onStartClicked()">Start</button>
-        <button type="button" class="StartButton" (click)="ngOnInit()">Generate new</button>
+        <button type="button" class="StartButton" (click)="onGenerateNewClicked()">Generate new</button>
 
       </div>
     </div>
