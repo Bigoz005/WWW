@@ -22,7 +22,6 @@ export class AppComponent{
     const elements = document.getElementsByClassName('item');
     console.log(elements)
     for (let c = 0; c < elements.length; c++) {
-      console.log(elements[c]);
       elements[c].classList.remove('marked');
     }
     for (let i = 0; i < 5; i++) {
