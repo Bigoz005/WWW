@@ -1,1 +1,1 @@
-# WWW - Układanka AngularJs
+# WWW - Układanka Angular
